@@ -1,0 +1,21 @@
+= simple_form_for @user, html: { class: 'col-md-4 col-md-offset-4', multipart: true } do |f|
+	= f.error_notification
+	.col-md-6
+		= f.input :fname
+		= f.input :mname
+		= f.input :lname
+		= f.input :email
+		= f.input :telephone_number
+	.col-md-6
+		= f.input :role, collection: User::ROLES.map { |role| [role, role]}
+		.if-professor
+			= f.input :is_curator
+		.if-student
+			= f.input :year_of_st_ed, collection: 2014...Time.new.year+1
+		.if-curator-or-student
+			= f.input :group_id, collection: Group.all.map { |g| [g.name, g.id]}
+		= f.input :password
+		= f.input :password_confirmation
+	.col-md-12
+		.submit-align-center
+			= f.submit 'Создать пользователя'

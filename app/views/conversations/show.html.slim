@@ -1,0 +1,11 @@
+.col-md-4.col-md-offset-4
+	h3.center  = @conversation.dialogName
+
+	.panel.panel-default
+		- if @conversation.messages.any?
+			.panel-body#messages
+				= render partial: 'messages/message', collection: @conversation.messages
+		- else
+			.panel-body.hidden#messages
+
+		= render partial: 'messages/form', locals: {message: @message, conversation: @conversation}

@@ -1,0 +1,20 @@
+doctype 5
+html lang='ru'
+	head
+		meta charset='utf-8'
+		meta name='viewport' content='width=device-width, initial-scale=1.0'
+		= stylesheet_link_tag 'application',
+													'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css', media: 'all'
+		= javascript_include_tag 'application',
+														 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js'
+		= csrf_meta_tags
+		= action_cable_meta_tag
+		title = ENV['TITLE']
+
+	body
+		.container-fluid
+			- if flash.keys.present?
+				br
+				= render 'layouts/flash_messages', flash: flash
+		= yield
+

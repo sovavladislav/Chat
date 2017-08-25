@@ -1,0 +1,5 @@
+= simple_form_for @type, html: { class: 'col-md-4 col-md-offset-4', multipart: true} do |f|
+	= f.error_notification
+	= f.input :name
+	= f.input :code
+	= f.submit 'Создать вид темы'

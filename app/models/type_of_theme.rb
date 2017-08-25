@@ -1,0 +1,2 @@
+class TypeOfTheme < ApplicationRecord
+end

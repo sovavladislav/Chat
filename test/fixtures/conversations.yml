@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dialogName: MyString
+  user: one
+  theme: one
+
+two:
+  dialogName: MyString
+  user: two
+  theme: two

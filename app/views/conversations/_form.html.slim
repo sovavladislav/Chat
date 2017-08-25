@@ -1,0 +1,13 @@
+= simple_form_for @conversation, html: { class: 'col-md-4 col-md-offset-4', multipart: true } do |f|
+	= f.error_notification
+	= f.input :dialogName
+	= label_tag :standart_theme, 'Стандартная тема'
+	= check_box_tag :standart_theme
+	.standart_theme
+		= f.input :theme_id, collection: Theme.all.map { |t| [t.themeName, t.id ]}
+	= f.association :users, collection: User.all.map { |u| [u.fname, u.id]}, input_html: { class: 'select2', multiple: true}
+	= f.submit 'Создать беседу'
+
+
+coffee:
+	$('#conversation_user_ids').select2()

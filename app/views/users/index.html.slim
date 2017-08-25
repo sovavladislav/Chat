@@ -1,0 +1,4 @@
+.col-md-4.col-md-offset-4
+	- @users.each do |c|
+		= link_to c.fname.to_s+' '+c.mname.to_s+' '+c.lname.to_s, "/conversation/#{c.id}"
+		br

@@ -1,0 +1,10 @@
+.col-md-4.col-md-offset-4
+	- @conversations.each do |c|
+		tr
+			td
+				= link_to c.dialogName, "/conversation/#{c.id}"
+			- if (c.creator == current_user) || current_user.is_admin
+				td
+					= link_to 'Редактирование беседы', edit_conversation_path(c)
+				td
+					= link_to 'Удалить беседу', { action: :destroy, id: c.id}, method: :destroy, data: { confirm: 'Вы уверены?'}
