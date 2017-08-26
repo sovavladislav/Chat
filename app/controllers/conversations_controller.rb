@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+  before_action :can_access?, only: [:show]
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -41,6 +42,13 @@ class ConversationsController < ApplicationController
 
   def conversation_params
     params.require(:conversation).permit(:dialogName, :user_id, :theme_id, user_ids: [])
+  end
+
+  def can_access?
+    unless current_user.conversations.include?(params[:id]) || current_user == Conversation.find(params[:id])&.creator
+      flash[:error] = 'Нет доступа к данной беседе'
+      redirect_to conversations_path
+    end
   end
 
   def set_conversation

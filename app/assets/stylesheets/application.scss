@@ -14,6 +14,7 @@
  *= require_self
  *= require select2
  *= require select2-bootstrap
+ *= require bootstrap-toggle
  */
 
 @import "bootstrap-sprockets";
@@ -29,10 +30,26 @@ input {
 }
 
 body {
-	background: image-url('background1.jpeg');
+	background: image-url('background.jpeg');
+	padding-top: 50px;
 }
 
 h3.center {
 	text-align: center;
 }
 
+textarea.form-control {
+	resize: none;
+}
+
+.navbar {
+	border: none;
+}
+
+.page-header {
+	margin-top: 20px;
+}
+
+.dropdown-menu {
+	width: 100%;
+}

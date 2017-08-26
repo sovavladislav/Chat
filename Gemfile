@@ -37,6 +37,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rails_bootstrap_navbar'
 gem 'slim-rails'
 gem 'select2-rails'
+gem 'bootstrap-toggle-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

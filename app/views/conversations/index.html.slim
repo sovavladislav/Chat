@@ -2,7 +2,7 @@
 	- @conversations.each do |c|
 		tr
 			td
-				= link_to c.dialogName, "/conversation/#{c.id}"
+				= link_to c.dialogName, "/conversations/#{c.id}"
 			- if (c.creator == current_user) || current_user.is_admin
 				td
 					= link_to 'Редактирование беседы', edit_conversation_path(c)

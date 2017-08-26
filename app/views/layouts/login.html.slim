@@ -1,0 +1,13 @@
+doctype 5
+html
+  head
+    title = ENV['TITLE']
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'login'
+    /![if IE]
+      = stylesheet_link_tag 'o-din/ie',
+  body.login-body
+    .container
+      - if flash.keys.present?
+        = render 'layouts/flash_messages', flash: flash
+      = yield

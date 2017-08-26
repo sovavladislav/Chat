@@ -12,9 +12,13 @@ html lang='ru'
 		title = ENV['TITLE']
 
 	body
+		= render 'layouts/navbar'
+
 		.container-fluid
 			- if flash.keys.present?
 				br
 				= render 'layouts/flash_messages', flash: flash
-		= yield
+
+			#flash-messages	
+			= yield
 
