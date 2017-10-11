@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   	resources :users
   	resources :groups
   	resources :themes
-  	resources :type_of_themes, path: 'types'
+  	resources :type_of_themes
+    resources :type_of_conversations
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

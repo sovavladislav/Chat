@@ -1,0 +1,9 @@
+ru:
+  activerecord:
+    models:
+      conversation: Беседа
+    attributes:
+      conversation:
+        dialogName: Название беседы
+        users: Собеседник(и)
+        theme_id: Тема беседы

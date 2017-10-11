@@ -1,0 +1,17 @@
+ru:
+  activerecord:
+    models:
+      user: Пользователь
+    attributes:
+      user:
+        lname: Фамилия
+        fname: Имя
+        mname: Отчество
+        email: E-mail
+        telephone_number: Телефон
+        role: Должность
+        is_curator: Куратор?
+        group_id: Группа
+        year_of_st_ed: Год поступления
+        password: Пароль
+        password_confirmation: Потверждение пароля

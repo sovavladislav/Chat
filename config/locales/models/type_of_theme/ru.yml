@@ -1,0 +1,8 @@
+ru:
+  activerecord:
+    models:
+      type_of_theme: Вид темы
+    attributes:
+      type_of_theme:
+        name: Название
+        code: Кодировка

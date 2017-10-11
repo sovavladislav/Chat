@@ -1,0 +1,6 @@
+ru:
+  activerecord:
+    attributes:
+      theme:
+        themeName: Название
+        type_of_theme_id: Вид темы

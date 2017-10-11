@@ -1,0 +1,6 @@
+ru:
+  activerecord:
+    attributes:
+      group:
+        name: Название
+        curator_id: Куратор группы

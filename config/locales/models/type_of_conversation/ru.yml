@@ -1,0 +1,8 @@
+ru:
+  activerecord:
+    attributes:
+      type_of_conversation:
+        name: Название вида беседы
+        main_role: Создатель беседы
+        available_roles: Пользователи для приглашения
+
