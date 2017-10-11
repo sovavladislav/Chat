@@ -38,6 +38,8 @@ gem 'rails_bootstrap_navbar'
 gem 'slim-rails'
 gem 'select2-rails'
 gem 'bootstrap-toggle-rails'
+gem 'pg'
+gem 'dotenv-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
