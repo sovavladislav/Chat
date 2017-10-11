@@ -1,0 +1,22 @@
+.page-header
+  h4 Темы бесед
+.clearfix
+	.container
+		.row
+			.col-sm-12
+				= link_to 'Создать тему', new_theme_path
+		.row
+			.col-sm-4.align-center
+			  h5 = '№'
+			.col-sm-4.align-center
+				h5 = 'Название'
+			.col-sm-4.align-center
+			 	h5 = 'Вид темы'
+			- @themes.each do |t|
+				.row
+					.col-sm-4.align-center
+						= link_to t.id, "/admin/themes/#{t.id}/edit"
+					.col-sm-4.align-center
+						= t.name
+					.col-sm-4.align-center
+						= t.type_of_theme&.name

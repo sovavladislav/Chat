@@ -1,10 +1,10 @@
 .page-header
-  h4 Виды тем
+  h4 Виды бесед
 .clearfix
 	.container
 		.row
 			.col-sm-12
-				= link_to 'Создать вид темы', new_type_of_theme_path
+				= link_to 'Создать вид беседы', new_type_of_conversation_path
 		.row
 			.col-sm-6.align-center
 			  h5 = '№'
@@ -13,6 +13,6 @@
 			- @types.each do |t|
 				.row
 					.col-sm-6.align-center
-						= link_to t.id, "/admin/type_of_themes/#{t.id}/edit"
+						= link_to t.id, "/admin/type_of_conversations/#{t.id}/edit"
 					.col-sm-6.align-center
 						= t.name

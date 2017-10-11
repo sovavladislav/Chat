@@ -1,10 +1,21 @@
-.col-md-4.col-md-offset-4
-	- @conversations.each do |c|
-		tr
-			td
-				= link_to c.dialogName, "/conversations/#{c.id}"
-			- if (c.creator == current_user) || current_user.is_admin
-				td
-					= link_to 'Редактирование беседы', edit_conversation_path(c)
-				td
-					= link_to 'Удалить беседу', { action: :destroy, id: c.id}, method: :destroy, data: { confirm: 'Вы уверены?'}
+.page-header
+  h4 Доступные беседы
+.clearfix
+	.container
+		.row
+			.col-sm-4.align-center
+			  h5 = 'Название беседы'
+			.col-sm-8.align-center
+				h5 = 'Доступные действия с беседой'
+			- @conversations.each do |c|
+				.row
+					- if (c.creator == current_user) || current_user.is_admin
+						.col-sm-4.align-center
+							= link_to c.dialogName, "/conversations/#{c.id}"
+						.col-sm-4.align-center
+							= link_to 'Редактирование беседы', edit_conversation_path(c)
+						.col-sm-4.align-center
+							= link_to 'Удалить беседу', { action: :destroy, id: c.id}, method: :delete, data: { confirm: 'Вы уверены?'}
+					- else
+						.col-sm-12.align-center
+							= link_to c.dialogName, "/conversations/#{c.id}"

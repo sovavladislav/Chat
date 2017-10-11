@@ -1,0 +1,9 @@
+= simple_form_for @type_of_conv, html: { class: 'col-md-4 col-md-offset-4', multipart: true} do |f|
+	= f.error_notification
+	= f.input :name
+	= f.input :main_role, collection: User::ROLES.map { |role| [I18n.t(role),role]}
+	= f.input :available_roles, collection: User::ROLES.map { |role| [I18n.t(role),role]}, input_html: { class: 'select2 form-control', multiple: true, id: 'available_roles'}
+	= f.submit 'Создать вид беседы'
+
+	javascript:
+		$('#available_roles').select2();

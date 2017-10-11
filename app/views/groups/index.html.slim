@@ -1,0 +1,22 @@
+.page-header
+  h4 Группы
+.clearfix
+	.container
+		.row
+			.col-sm-12
+				= link_to 'Создать группу', new_group_path
+		.row
+			.col-sm-4.align-center
+			  h5 = '№'
+			.col-sm-4.align-center
+				h5 = 'Название'
+			.col-sm-4.align-center
+				h5 = 'Куратор'
+			- @groups.each do |g|
+				.row
+					.col-sm-4.align-center
+						= link_to g.id, "/admin/groups/#{g.id}/edit"
+					.col-sm-4.align-center
+						= g.name
+					.col-sm-4.align-center
+						= g.curator

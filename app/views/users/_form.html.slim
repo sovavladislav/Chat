@@ -1,11 +1,11 @@
 = simple_form_for @user, html: { class: 'col-md-4 col-md-offset-4', multipart: true } do |f|
 	= f.error_notification
+	= f.input :lname
 	= f.input :fname
 	= f.input :mname
-	= f.input :lname
 	= f.input :email
 	= f.input :telephone_number
-	= f.input :role, collection: User::ROLES.map { |role| [role, role]}
+	= f.input :role, collection: User::ROLES.map { |role| [I18n.t(role),role]}
 	.if-professor
 		= f.input :is_curator
 	.if-student

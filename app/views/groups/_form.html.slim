@@ -1,5 +1,8 @@
 = simple_form_for @group, html: { class: 'col-md-4 col-md-offset-4', multipart: true } do |f|
 	= f.error_notification
-	= f.input :name
-	= f.input :curator_id, collection: User.all.where(role: 'professor')
+	= f.input :name, placeholder: 'Формат: ГОД ПОСТУПЛЕНИЯ-НОМЕР ГРУППЫ (2014-1)'
+	= f.input :curator_id, collection: User.all.where(role: 'professor').map { |x| [x.fname, x.id] } , class: 'select2'
 	= f.submit 'Создать группу'
+
+javascript:
+	$('#group_curator_id').select2();
