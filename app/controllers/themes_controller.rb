@@ -12,7 +12,7 @@ class ThemesController < ApplicationController
 
 	def create
 		@theme = Theme.new(theme_params)
-		if @group.save
+		if @theme.save
 			flash[:notice] = 'Тема успешно создана'
 			redirect_to themes_path
 		else
@@ -38,7 +38,7 @@ class ThemesController < ApplicationController
 	private
 
 	def theme_params
-		params.require(:theme).permit(:themeName, :type_id)
+		params.require(:theme).permit(:name, :type_of_theme_id)
 	end
 
 	def set_theme

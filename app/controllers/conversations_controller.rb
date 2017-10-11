@@ -14,7 +14,7 @@ class ConversationsController < ApplicationController
     params[:conversation][:user_id] = current_user.id
     @conversation = Conversation.new(conversation_params)
     if @conversation.save
-      flash[:notice] = 'Диалог успешно создан'
+      flash[:notice] = 'Беседа успешно создана'
       redirect_to conversations_path
     else
       render 'new'
@@ -27,11 +27,16 @@ class ConversationsController < ApplicationController
 
   def update
     if @conversation.update(conversation_params)
-      flash[:notice] = 'Диалог успешно обновлён'
+      flash[:notice] = 'Беседа успешно обновлена'
       redirect_to conversations_path
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @conversation.destroy
+    redirect_to conversations_path
   end
 
   def show
@@ -45,7 +50,7 @@ class ConversationsController < ApplicationController
   end
 
   def can_access?
-    unless current_user.conversations.include?(params[:id]) || current_user == Conversation.find(params[:id])&.creator
+    unless current_user.conversations.include?(Conversation.find_by(id:params[:id])) || current_user == Conversation.find(params[:id])&.creator
       flash[:error] = 'Нет доступа к данной беседе'
       redirect_to conversations_path
     end

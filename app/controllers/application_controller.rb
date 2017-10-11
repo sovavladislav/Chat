@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def if_admin?
-  	unless current_user.role == 'admin'
+  	unless current_user.is_admin
   		flash[:error] = 'Нет доступа к данной категории'
   		redirect_to root_path
   	end
